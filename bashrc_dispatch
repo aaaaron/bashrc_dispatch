@@ -61,7 +61,6 @@ if $EXPORT_FUNCTIONS ; then
 fi
 
 # Now dispatch special files
-#P|RF="${HOME}/."
 PRF="${HOME}/."
 
 [ -f "${PRF}bashrc_once"  ]       && [ -z "$BRCD_RANONCE" ] && . "${PRF}bashrc_once"  && export BRCD_RANONCE=true
