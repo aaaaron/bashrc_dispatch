@@ -6,16 +6,16 @@ if [[ "$OSTYPE" == *"darwin"* ]] ; then
 fi
 if [ -f "$HOME/.bashrc" ] ; then
 	mv $HOME/.bashrc $PWD/`date +%Y%m%d`.bashrc 2>&-
-	ln -s $PWD/bashrc_dispatch $HOME/.bashrc 2>&-
 fi
 if [ -f "$HOME/.bash_profile" ] ; then
 	mv $HOME/.bash_profile $PWD/`date +%Y%m%d`.bash_profile 2>&-
-	ln -s $PWD/bashrc_dispatch $HOME/.bash_profile 2>&-
 fi
 if [ -f "$HOME/.bash_login" ] ; then
 	mv $HOME/.bash_login $PWD/`date +%Y%m%d`.bash_login 2>&-
-	ln -s $PWD/bashrc_dispatch $HOME/.bash_login 2>&-
 fi
 if [ -f "$HOME/.profile" ] ; then
 	mv $HOME/.profile $PWD/`date +%Y%m%d`.profile 2>&-
 fi
+ln -s $PWD/bashrc_dispatch $HOME/.bash_profile 2>&-
+ln -s $PWD/bashrc_dispatch $HOME/.bashrc 2>&-
+ln -s $PWD/bashrc_dispatch $HOME/.bash_login 2>&-
