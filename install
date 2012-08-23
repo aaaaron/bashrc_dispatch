@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# I'm really not sure what's going on with LF vs. CRLF on OSX vs. my Linux hosts vs. Github. DEVDEBUG
+if [[ "$OSTYPE" == *"darwin"* ]] ; then
+	echo "Fixing CRLF problem for OSX"
+	dos2unix $PWD/*
+fi
 if [ -f "$HOME/.bashrc" ] ; then
 	mv $HOME/.bashrc $PWD/`date +%Y%m%d`.bashrc 2>&-
 	ln -s $PWD/bashrc_dispatch $HOME/.bashrc 2>&-
