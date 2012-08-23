@@ -123,3 +123,14 @@ License
 
 This is free software released into the public domain.
 
+
+aaaaron fork
+------------
+
+`git clone https://github.com/aaaaron/bashrc_dispatch.git && cd bashrc_dispatch && ./install`
+
+20120822
+ * change `bashrc_dispatch` to look in repo for files
+ * add my custom startup files
+ * add installer to symlink everything
+         

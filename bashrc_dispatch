@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Launch different bash configuration for Linux vs OSX, interactive vs batch
 #
@@ -61,7 +61,7 @@ if $EXPORT_FUNCTIONS ; then
 fi
 
 # Now dispatch special files
-PRF="${HOME}/."
+PRF="${HOME}/bashrc_dispatch/"
 
 [ -f "${PRF}bashrc_once"  ]       && [ -z "$BRCD_RANONCE" ] && . "${PRF}bashrc_once"  && export BRCD_RANONCE=true
 [ -f "${PRF}bashrc_all" ]                                   && . "${PRF}bashrc_all"
