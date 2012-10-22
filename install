@@ -16,3 +16,4 @@ fi
 ln -s $PWD/bashrc_run $HOME/.bash_profile 2>&-
 ln -s $PWD/bashrc_run $HOME/.bashrc 2>&-
 ln -s $PWD/bashrc_run $HOME/.bash_login 2>&-
+ln -s $PWD/.vimrc.local $HOME/.vimrc.local 2>&-
