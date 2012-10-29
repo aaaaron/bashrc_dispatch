@@ -1,8 +1,7 @@
-"Override settings from spf-13
-set foldlevel=1
+#set foldlevel=1
 set background=dark
-let s:base03=232
-set mouse-=a
+#let s:base03=232
+#set mouse-=a
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -11,12 +10,12 @@ nmap <leader>l :set list!<CR>
 set list
 set listchars=tab:\|\ ,eol:¬
 
-let spf13_no_indent_guides_autocolor=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=8
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#555555 ctermbg=233
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333333 ctermbg=232
+#let spf13_no_indent_guides_autocolor=1
+#let g:indent_guides_start_level=2
+#let g:indent_guides_guide_size=8
+#let g:indent_guides_auto_colors = 0
+#autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#555555 ctermbg=233
+#autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333333 ctermbg=232
 ""let g:indent_guides_enable_on_vim_startup = 0
 
 set wrap
@@ -38,6 +37,7 @@ nnoremap <F4> :NumbersToggle<CR>
 
 let g:snips_author = 'Aaron Abelard <aabelard@exacttarget.com>'
 hi NonText ctermfg=236 guifg=#333333
-let php_sql_query = 0
 
-let g:autoclose_loaded=1
+#let php_sql_query = 0
+"let g:autoclose_loaded=1 " Disable autoclose
+"let b:did_indent = 1 " Disable indenting

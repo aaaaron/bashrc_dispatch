@@ -16,4 +16,8 @@ fi
 ln -s $PWD/bashrc_run $HOME/.bash_profile 2>&-
 ln -s $PWD/bashrc_run $HOME/.bashrc 2>&-
 ln -s $PWD/bashrc_run $HOME/.bash_login 2>&-
-ln -s $PWD/.vimrc.local $HOME/.vimrc.local 2>&-
+#ln -s $PWD/.vimrc.local $HOME/.vimrc.local 2>&- #spf13-vim
+ln -s $PWD/.vimrc $HOME/.vimrc 2>&-
+echo "git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle" # TODO
+echo "vim +BundleInstall" # TODO
+#vim -u ~/.vimrc +BundleInstall
