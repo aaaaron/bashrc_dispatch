@@ -5,6 +5,10 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+# Include the npm path if it exists (OSX brew install node)
+if [ -d "/usr/local/share/npm/bin" ] ; then
+	PATH="$PATH:/usr/local/share/npm/bin"
+fi
 
 # set vi mode
 set -o vi
