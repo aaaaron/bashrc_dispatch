@@ -5,6 +5,10 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+# Include the npm path if it exists (OSX brew install node)
+if [ -d "/usr/local/share/npm/bin" ] ; then
+	PATH="$PATH:/usr/local/share/npm/bin"
+fi
 
 # set vi mode
 set -o vi
@@ -21,7 +25,7 @@ shopt -s checkwinsize
 
 # show the git branch on the command promp
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ ⭠ \1/'
 }
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -53,9 +57,9 @@ shell_is_osx && export CLICOLOR=true
 
 # Give us a red prompt if this machine is flagged as production
 if [ -f $HOME/.production ] ; then
-	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch) \e[1;33m⚡\033[00m '
 else
-	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch) \e[1;33m⚡\033[00m '
 fi
 
 if shell_is_osx ; then
