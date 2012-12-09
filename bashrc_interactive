@@ -75,4 +75,5 @@ alias p='pushd'
 alias o='popd'
 alias gitlog="git log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'"
 
-export PATH=/opt/local/bin:$PATH:$HOME/bin:$HOME/.rvm/bin
+#export PATH=/opt/local/bin:$PATH:$HOME/bin:$HOME/.rvm/bin # TODO osx specific
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
