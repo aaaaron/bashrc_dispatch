@@ -67,12 +67,12 @@ if shell_is_osx ; then
 		/Applications/MacVim.app/Contents/MacOS/MacVim "$PWD/$1" &
 	}
 	# Someday OSX will default to HashKnownHosts yes, until then...
-	complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -d " " -f1 | cut -d "," -f1 | sort -u ))" ssh	
+	complete -W "$(echo $(cat ~/.ssh/known_hosts | cut -d " " -f1 | cut -d "," -f1 | sort -u )) $(echo $(ls -1 ~/.ssh/ | sort))" ssh
 fi
 if shell_is_linux ; then
 	alias ls="/bin/ls -Alh --color=auto --group-directories-first "
 	# /etc/hosts is better than nothing, depending on the environment
-	complete -W "$(echo $(cat /etc/hosts | grep -v ^# | cut -d " " -f2- | sed 's/ /\n/g' | sort -u))" ssh
+	complete -W "$(echo $(cat /etc/hosts | grep -v ^# | cut -d " " -f2- | sed 's/ /\n/g' | sort -u)) $(echo $(ls -1 ~/.ssh/ | sort))" ssh
 fi
 
 alias p='pushd'
