@@ -8,8 +8,10 @@ let mapleader = ','
 "filetype off                   " required by Vundle (Maybe not for newer version of vim, https://github.com/gmarik/vundle/issues/176
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-filetype plugin indent on       " Vundle Required -- presumably after Bundles are loaded?
 " }
+
+" Enable pathogen
+call pathogen#infect()
 
 " Copied from spf13
 function! InitializeDirectories()
@@ -55,6 +57,7 @@ set shiftwidth=4
 
 " listchars
 set listchars=tab:\|\ ,eol:¬
+"set listchars=tab:\￨\ ,eol:¬
 set list
 nmap <leader>l :set list!<CR>
 
@@ -110,6 +113,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " TODO not sure all the repercussions of this
 scriptencoding utf-8
+set encoding=utf-8
 
 " TODO not sure about this block yet 20121024
 set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
@@ -133,7 +137,7 @@ set smartcase     " honor case in search if we use it
 set wildmenu                    " show list instead of just completing
 set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
 
-set scrolloff=3                 " minimum lines to keep above and below cursor
+set scrolloff=7                 " minimum lines to keep above and below cursor
 set foldenable                  " auto fold code
 
 " TODO TODO ....
@@ -155,19 +159,8 @@ map ^[[H g0
 imap ^[[H ^Og0
 
 " Plugins {
-
-	" vim-powerline -- improved status line {
-		Bundle "Lokaltog/vim-powerline"
-		set laststatus=2
-		let g:Powerline_symbols = 'fancy'
-		set statusline=%<%f\    " Filename
-		set statusline+=%w%h%m%r " Options
-		set statusline+=%{fugitive#statusline()} "  Git Hotness
-		set statusline+=\ [%{&ff}/%Y]            " filetype
-		set statusline+=\ [%{getcwd()}]          " current dir
-		set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-		" Run this if things aren't right :PowerlineClearCache
-	" }
+	
+	Bundle 'gmarik/vundle'
 	
 	" vim-fugitive - git integration {
 		Bundle "tpope/vim-fugitive"	
@@ -207,6 +200,31 @@ imap ^[[H ^Og0
 		" toggle paste mode (is there any point to this with auto-indent off?)
 		set pastetoggle=<F5>
 	" }
+	
+	" vim-less -- colors for .less files {
+		Bundle "groenewege/vim-less.git"
+		nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><s pace>
+	" }
+	
+	" vim-powerline -- improved status line {
+		"Bundle 'Lokaltog/powerline', {'rtp': '/Users/aabelard/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin'}
+"set rtp+=,/Users/aabelard/.vim/bundle/powerline/powerline/bindings/vim/plugin/
+set rtp+=/Users/aabelard/.vim/bundle/powerline/powerline/bindings/vim
+set laststatus=2
+"		Bundle "Lokaltog/powerline", {'rtp': '/Users/aabelard/.vim/bundle/powerline/powerline/bindings/vim/plugin/' }
+"		set laststatus=2
+"		let g:Powerline_symbols = 'fancy'
+		"let g:Powerline_symbols = 'unicode'
+		set statusline=%<%f\    " Filename
+		set statusline+=%w%h%m%r " Options
+		set statusline+=%{fugitive#statusline()} "  Git Hotness
+		set statusline+=\ [%{&ff}/%Y]            " filetype
+		set statusline+=\ [%{getcwd()}]          " current dir
+		set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+		" Run this if things aren't right :PowerlineClearCache
+	" }
+	
+filetype plugin indent on       " Vundle Required -- presumably after Bundles are loaded?
 " } end plugins
 
 "=========================
